@@ -129,7 +129,7 @@ animate.start('left', 1500, 1000, 'strongEaseOut');
 
 
 /**
- * 表单验证
+ * ****************【开始 表单验证】*****************
  */
 
 
@@ -169,7 +169,7 @@ Validator.prototype.add = function (dom, rule, errorMsg) {
 }
 
 Validator.prototype.start = function () {
-    for (var i = 0; validatorFunc; validataFunc = this.cache[i++]) {
+    for (var i = 0; validataFunc; validataFunc = this.cache[i++]) {
         var msg = validataFunc();
         if (msg) {
             return msg;
@@ -180,6 +180,24 @@ var registerForm = document.getElementById('registerForm');
 
 var validataFunc = function () {
     var validator = new Validator();
+    validator.add(registerForm.userName, 'isNonEmpty', '􏰧􏰑􏰨􏰩􏰪􏰫􏰬用户名不能为空');
+    validator.add(registerForm.password, 'minLength:6', '􏰭􏰉􏰮􏰯􏰩􏰪􏰰􏰱 密码长度不能少于6位 􏰲');
+    validator.add(registerForm.phoneNumber, 'isMobile', '手机号码格式不正确􏰆􏰇􏰈􏰉􏰊􏰅􏰩􏰳􏰴');
+    var errorMsg = validator.start(); // 􏰵􏰶􏰣􏰤􏰷􏰸
+    return errorMsg; // 􏰹􏰺􏰣􏰤􏰷􏰸
+
+}
+
+registerForm.onsubmit = function () {
+    var errorMsg = validataFunc();
+    if (errorMsg) {
+        console.log(errorMsg);
+        return false;
+    }
 }
 
 
+/**
+ * ***************【结束 表单验证】*****************
+ * 
+ */
