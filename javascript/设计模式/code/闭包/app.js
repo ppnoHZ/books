@@ -10,7 +10,7 @@ var f = func();
 
 f();//2
 f();//3
-
+// -----------------------------------------------
 
 var nodes = document.getElementsByTagName('div');
 for (var i = 0; i < nodes.length; i++) {
@@ -25,6 +25,7 @@ for (var i = 0; i < nodes.length; i++) {
         }
     })(i)
 }
+// -----------------------------------------------
 
 
 var Type = {}
@@ -39,6 +40,7 @@ for (var i = 0, type; type = ['String', 'Array', 'Number'][i++];) {
 }
 console.log(Type.isArray([]));
 
+// -----------------------------------------------
 
 /**
  * 封装变量
@@ -64,6 +66,7 @@ console.log(mult(1, 2, 3));  //6
 console.log(mult(1, 2, 3)); //6
 
 //用闭包封装缓存变量
+//将cache 封装到闭包里。
 var mult = (function () {
     var cache = {}
     return function () {
